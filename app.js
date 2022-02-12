@@ -23,14 +23,21 @@ require('dotenv').config();
 var app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 
 /**
  * -------------- SESSION SETUP ----------------
  */
 
-// TODO
+const dbString = 'mongodb://localhost:27017/tutorial_db';
+const dbOptions = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+
+}
+const connection = mongoose.createConnection(dbString, dbOptions);
+
 
 /**
  * -------------- PASSPORT AUTHENTICATION ----------------
